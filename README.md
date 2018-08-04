@@ -1,4 +1,4 @@
-# Blog
+# React Blog
 
 This is a simple blog written in `React`. You can change the files in the public folder to use it. In general, it is quite easy to use. With little modification, you can even hook it up to a actual backend server. 
 
