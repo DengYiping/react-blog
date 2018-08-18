@@ -22,7 +22,7 @@ class App extends Component {
   }
   render() {
     const WrappedNavHeader = withRouter(NavHeader);
-    const WrappedRecentPosts = withJson(RecentPosts, '/blogs.json', 'posts');
+    const WrappedRecentPosts = withJson(RecentPosts, '/json/blogs.json', 'posts');
 
     const DataPost = (props) => {
       return (<Post {...props.data} />);
@@ -32,9 +32,14 @@ class App extends Component {
       <Layout>
         <WrappedNavHeader items={header_items} handleSwitch={this.handleMenuClick}/>
         <Content style={{ padding: '0 50px', marginTop: 64, minHeight:'100vh'}}>
-          <Route exact path='/' render={() => <WrappedRecentPosts />} />
+          <Route exact path='/' render={() => 
+          {
+            document.title = 'Yiping\'s Dev Blog';
+            return <WrappedRecentPosts />
+          }} />
           <Route path='/post/:id' render={props => {
-            let WrappedPost = withJson(DataPost, `/${props.match.params.id}.json`, 'data');
+            document.title = 'Yiping\'s Dev Blog: ' + props.match.params.id.replace('_', ' ');
+            let WrappedPost = withJson(DataPost, `/json/${props.match.params.id}.json`, 'data');
             return (<WrappedPost />);
           }} />
         </Content>

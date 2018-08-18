@@ -2,6 +2,7 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ydeng.me/blog",
   "dependencies": {
     "antd": "^3.7.3",
     "autoprefixer": "7.1.6",
